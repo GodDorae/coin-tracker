@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { fetchCoins } from "../api";
+import DarkModeToggle from "../DarkModeToggle";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -20,8 +20,9 @@ const Header = styled.div`
 const CoinsList = styled.ul``;
 
 const Coin = styled.li`
-  background-color: white;
-  color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.bgColor};;
+  color: ${(props) => props.theme.textColor};
+  border: 1px solid ${(props) => props.theme.textColor};
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 10px;
@@ -77,12 +78,13 @@ function Coins() {
   //     setLoading(false);
   //   })();
   // }, []);
-
+  console.log
   return (
     <Container>
       <Header>
         <Title>Coin</Title>
       </Header>
+      <DarkModeToggle />
       {isLoading ? (
         <Loader>Loading...</Loader>
       ) : (

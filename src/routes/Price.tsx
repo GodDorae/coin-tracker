@@ -22,28 +22,28 @@ const List = styled.ul`
       opacity: 0;
       animation-name: ${listShow};
       animation-duration: 0.5s;
-      animation-delay: 1s;
+      animation-delay: 0.5s;
       animation-fill-mode: forwards;
     }
     &:nth-child(2) {
       opacity: 0;
       animation-name: ${listShow};
       animation-duration: 0.5s;
-      animation-delay: 2s;
+      animation-delay: 1s;
       animation-fill-mode: forwards;
     }
     &:nth-child(3) {
       opacity: 0;
       animation-name: ${listShow};
       animation-duration: 0.5s;
-      animation-delay: 3s;
+      animation-delay: 1.5s;
       animation-fill-mode: forwards;
     }
     &:last-child {
       opacity: 0;
       animation-name: ${listShow};
       animation-duration: 0.5s;
-      animation-delay: 4s;
+      animation-delay: 2s;
       animation-fill-mode: forwards;
     }
   }
@@ -51,8 +51,9 @@ const List = styled.ul`
 
 const EachList = styled.li`
   width: 100%;
-  background-color: white;
-  color: black;
+  background-color: ${(props) => props.theme.bgColor};
+  border: 1px solid ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
   display: flex;
   justify-content: center;
   align-items: center;

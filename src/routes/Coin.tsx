@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { useLocation, useMatch, useParams, Outlet } from "react-router-dom";
+import { useLocation, useMatch, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import { Routes, Route, Link } from "react-router-dom";
 import Price from "./Price";
 import Chart from "./Chart";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
+import DarkModeToggle from "../DarkModeToggle";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -31,7 +31,7 @@ const BackBtn = styled.div`
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  border: 1px solid white;
+  border: 1px solid ${(props) => props.theme.textColor};
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -212,6 +212,7 @@ function Coin() {
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
       </Header>
+      <DarkModeToggle />
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
