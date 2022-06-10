@@ -251,7 +251,17 @@ function Coin() {
           </Tabs>
           <Routes>
             <Route path="chart" element={<Chart coinId={coinId} />} />
-            <Route path="price" element={<Price />} />
+            <Route
+              path="price"
+              element={
+                <Price
+                  one_hour={tickersData?.quotes.USD.percent_change_1h}
+                  six_hour={tickersData?.quotes.USD.percent_change_6h}
+                  twelve_hour={tickersData?.quotes.USD.percent_change_12h}
+                  twenty_four_hour={tickersData?.quotes.USD.percent_change_24h}
+                />
+              }
+            />
           </Routes>
         </React.Fragment>
       )}
