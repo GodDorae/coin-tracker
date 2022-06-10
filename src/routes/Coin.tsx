@@ -18,8 +18,27 @@ const Container = styled.div`
 const Header = styled.div`
   height: 10vh;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
+`;
+
+const BackBtn = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  a {
+    font-weight: bold;
+  }
 `;
 
 const Title = styled.h1`
@@ -186,6 +205,9 @@ function Coin() {
         </title>
       </Helmet>
       <Header>
+        <BackBtn>
+          <Link to={"/coin-tracker/"}>&larr;</Link>
+        </BackBtn>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
@@ -228,7 +250,7 @@ function Coin() {
             </Tab>
           </Tabs>
           <Routes>
-            <Route path="chart" element={<Chart coinId={coinId}/>} />
+            <Route path="chart" element={<Chart coinId={coinId} />} />
             <Route path="price" element={<Price />} />
           </Routes>
         </React.Fragment>
